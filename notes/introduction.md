@@ -101,7 +101,7 @@
   - They have a robots app and a face detection app 
   - Their Sr. Developer just left to go work for Google, so you're stressed, Bruno the CEO has some ideas, so he will give us tasks that we will work through in each section for Keiko Corp's projects 
 
-## Before You Get Started 
+## Before You Get ed 
 - There are two paths you can take when doing this course 
   - Passively - where you don't do any coding along, you just watch 
     - But you can just observe and take notes on the thought process here 

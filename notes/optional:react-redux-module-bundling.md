@@ -74,19 +74,70 @@
   - Redux took inspiration from databases using things like event sourcing and CQRS 
 
 ## Why Redux?
-- 3/7
+- Before we use anything, we need to understand why we would need to use soemthing 
+- Why Use Redux? 
+  - Good for managing large state 
+    - React is good at what we call the view layer, but it isn't great for managing state 
+  - Useful for sharing data between containers 
+    - With React sharing state between containers is difficult because you have to move the state up one layer, so that you have a parent that can share the state between the two, but with Redux this makes it easy 
+  - Predictable state management using the 3 principles 
+    - The 3 principles 
+      - Single source of truth 
+        - We have one big object that describes the single state of the app
+      - State is read only 
+        - Encourages immutability 
+        - Not modifying the object, this prevents unexpected errors, we create a new state after each action is taken by the user 
+      - Changes using pure functions 
+        - Receives an input and always returns an output that is predictable 
+- Redux Vocab 
+  - Action --> Reducer --> Store --> Make Changes 
+    - Action - something a user does like clicking on a dropdown menu 
+      - As soon as a user creates an action it then goes through the reducer 
+    - Reducer - a pure function, receives an input which is the action and creates an output 
+      - The output is the state or store 
+    - Store - the state - the entire state of the app 
+    - Make changes - makes changes to the view layer when the store is updated 
+  - In the past in jQuery we just had Action <--> Make changes 
+    - The more actions you have the more changes you have to make and then this could trigger other actions, etc. 
+- With Redux, we make sure all of the actions go through one reducer, everything flows with this function and through this function it always returns the same state based on the action and updates the store and then the store makes changes 
+- Flux Pattern 
+  - Action --> Dispatcher --> Store --> View 
+  - An architecture pattern 
+    - Architecture in software is used as a way to make sure that we're able to solve problems in a logical sense and in an organized fashion 
+  - The flux pattern inspirec Redux 
+    - It's the idea of having this action and then having a dispatcher that dispatches this action to the store that updates the view 
+  - Has a one way data flow 
+- Before the flux pattern we had MVC 
+  - Model-View-Controller 
+  - Action -> Controller -> Model <--> View 
+  - The issue with MVC the controller changes different pieces of the model and etc, where we ran into the same thing with jQuery 
+  - Great for when your apps are smaller 
+- We want to architect our apps in a way that as they grow, everything is easier to reason about and understand 
+- In redux we get to remove this.state and have it all in the Redux library 
+- Redux doesn't completely replace state, we will learn when we want to still use React state 
 
 ## Updated Code For This Section
-- 
+- Updated code will be included in comments to show changes like `import thinkMiddleware` is now `import {thunk}`
 
 ## Installing Redux
-- 
+- We need to add Redux to our robofriends app, we will work together to make sure our code works as well 
+- To install redux 
+  - `npm i redux` 
+- With Redux 90% of your code is going to be JS and teaches really good principles 
+  - You may not always need Redux, but it is a good tool to learn because it has great concepts for you to learn 
+  - We need to connect redux to react because it can work with any other library 
+- Also install `react-redux` 
+  - This connects the containers (`App.js`) to the Redux store and the container is going to communicate with the store 
+  - The components won't know the Redux exists, the only connection will be between a container or smart component and the Redux store 
 
 ## Redux Toolkit
-- 
+- Redux toolkit 
+  - Redux has a ton of boilerplate code, so it makes our code more maintainable as our apps grow, but it does mean more typing and more files
+  - Redux toolkit was created for this reason 
+  - We won't use it in this course because we want to practice and see how things work without the magic behind it, but after this section check it out and then start using it 
 
 ## Redux Toolkit Example
-- 
+- An example of code with and without using Redux toolkit
 
 ## Redux Actions And Reducers
 - 4/7

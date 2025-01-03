@@ -308,17 +308,35 @@
 - Resources and Guides for more practice on improving performance 
 - TODO: save these resources to browser *Come back to this resource*
 
-## HTTP/
-- 6/6 starts
+## HTTP/2
+- HTTP/2 is a protocol update that's still compatable with HTTP but its main goal is to improve network latency 
+  - Network Latency - How fast we can deliver files back and forth 
+- HTTP/2 may change how you consider combining resources 
+  - The techniques we discussed like minification, compression, image optimization should definitely be continued with HTTP/2
+    - However, physically combining files might not achieve the desired results with HTTP/2 because of something called multiplexing 
+    - This is because server requests are faster on HTTP, so eliminating a request may not be sunstantially faster 
+- HTTP/2 is binary instead of textual 
+  - It is fully multiplexed 
+  - In theory, it can have on connection for something called parallelism 
+    - With one connection have many many files connected to it 
+    - It can also support server push 
+- It is not fully adopted yet, but it is still evolving 
+- Implementing a server with HTTP/2 
+  - If you're using node above version 8 you can deliver files through that protocol 
+  - `const http2 = require('http2')`
 
 ## Resources: HTTP/2
-- 
+- A resource on all about HTTP2 and the why: 
+  - https://hpbn.co/http2/
 
-## HTTP/
-- 
+## HTTP/3
+- As of 2019 HTTP/3 has started being developed, here is a resource to learn more: 
+  - https://blog.cloudflare.com/http3-the-past-present-and-future/
 
 ## Section Summary
-- 
+- Premature optimization is the root of all evil 
+  - If you're trying to ship your project because you're trying to get it really really fast and you have 0 users, you're losing 
+  - Optimize for performance based on the device and network capabilities of your users in ideally under 5 seconds and always test your performance on mobile devices on different network connections and experiment 
 
 ## Unlimited Update
-- 
+- Return to this lesson if you think something needs to be updated 

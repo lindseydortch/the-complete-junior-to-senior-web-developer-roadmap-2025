@@ -285,13 +285,28 @@
 - For the repo and create a Github pages for it so you have a URL you can test on 
 
 ## Solution: Keiko Corp Website
-- 
+- If we noticed we're using libraries that don't work 
+- First, we look at the HTML file 
+  - We have a bunch of CSS files we are importing and most of them aren't minimized 
+  - Then we want to see if we even need the libraries or can we use them natively 
+  - Then we look at the script tags and we need to move them down to the end of the body and then ask ourselves do we even need it 
+    - Some of these libraries don't even work on the site 
+  - Then go through and minimize the JS files 
+- Above the fold loading, so we can ignore our images and add a style tag for the main part of the page that the viewer sees right away and then everything below the fold loads after 
+- Then look at the media attributes and where we can add in media queries 
+- Then look at specificity (this is such a minor thing, but does still effect load speeds)
+- Then defer and async scripts 
+- Then minimize DOM manipulation 
+  - So this is where we see issues with jQuery and parallax and then we can use the native features in the browser 
+    - We can go to youmightnotneedjquery.com to see a list of replacements for jQuery 
 
 ## Optional: Resource Prefetching
-- 
+- A note about a resource to learn more about resource pre-fetching 
+  - https://css-tricks.com/prefetching-preloading-prebrowsing/
 
 ## Resources: Performance Tools
-- 
+- Resources and Guides for more practice on improving performance 
+- TODO: save these resources to browser *Come back to this resource*
 
 ## HTTP/
 - 6/6 starts

@@ -43,19 +43,35 @@
 - We will also feel super comfortable with state management 
 
 ## Deep Dive Into This Topic
-- 2/7
+- A note on where to learn more React after this course
 
 ## Updated Code For This Section
-- 
+- A place to find the updated code 
 
 ## Introduction To React & Robofriends Build
-- 
+- Link to if you want to learn how the robofriends app was built 
+  - React.js Fundamentals Section 
+  - Extra Learning: React Hooks Section 
 
 ## Introduction To Redux And Webpack
-- 
+- There are two main bottlenecks for JS 
+  - Delivering the JS to the frontend 
+  - DOM Manipulation 
+- The better our deliver of JavaScript, the faster we're going to build the render tree and we also want to be smart about how much we re-render something 
+- We have React to help us with this cycle of rendering, layout, paint and then modifying 
+- We will learn about webpack which helps how we send our files 
+- Then we will learn about React to allow us to improve the process of rendering, layout, paint 
+- As senior developers, we need to think about why we would want to include Redux and why it would improve upon React 
 
 ## State Management
-- 
+- State Management 
+  - State - describes what our app should look like -- think of state as memory 
+    - An app needs to remember things in order to work 
+  - State management is a problem as our apps get bigger and bigger and bigger 
+- Redux came up with a novel concept 
+  - What if we just remove the state and these components have props and then the state we keep in a store (one massive object that describes how our app should look) and then we pass down this store to whatever component needs 
+  - Redux made it to where none of the components need to hold state anymore and then we just pass down that state to whichever component needs it 
+  - Redux took inspiration from databases using things like event sourcing and CQRS 
 
 ## Why Redux?
 - 3/7

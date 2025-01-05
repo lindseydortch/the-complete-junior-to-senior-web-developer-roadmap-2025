@@ -140,16 +140,70 @@
 - An example of code with and without using Redux toolkit
 
 ## Redux Actions And Reducers
-- 4/7
+- The first thing we want to do is create an action and a reducer 
+  - Which is the first two components 
+- We created an `actions.js` in our src folder 
+  - We create an action function `setSearchField` and it is an object with type and payload 
+    - payload - sending whatever data is needed, this is common to see throughout Redux 
+  - We capatilized the type because it is a constant which are usually all caps in JS 
+  - Using a constant variable we get an error if we spell it wrong where we're running the app
+  - Most Redux demos will have a constant file to keep track of these as well  
+- We created a `constants.js` for our constant variables 
+- Reducer - reads the action and spits out state
+  - We create a `reducers.js` 
+  - We have the initialState and then we create our reducer 
+  - Our reducer takes in the state and the action 
+  - Reducers get our input of our state and an action and if they care about the action that they receive then they will act upon the state 
+    - We use a switch statement for this 
+  - `Object.assign({}, state, searchField: action.payload )`
+    - We're taking our new state with action.payload 
+    - This is standard Redux syntax 
+    - You can also use object destructuring instead 
+      - `{...state, searchField: action.payload}`
+- Remember the 3 principles 
+  - Single source of truth 
+  - State is read only
+  - Changes using pure functions 
 
 ## Redux Store And Provider
-- 
+- We need to connect our Redux part of our application to the React part of our application 
+  - react-redux comes with a provider and connect we can easily connect the two parts of our application 
+- Before we create our Provider to connect the two we need to create our Store (the single source of truth)
+  - We can create a store using the `createStore` function from Redux 
+  - In real life we have multiple reducers, so we create a rooteReducer -- we combine in the store 
+  - We don't pass down store as props, we wrap our app in the provider component and we pass the store to it, then we use connect to finish the connection 
 
 ## Redux Connect()
-- 
+- The connect function is used to keep us from having to use store.subscribe 
+  - .subscribe() - subscribes any component that is interested to be aware of Redux and listen to any changes 
+  - .connect() simplifies this 
+  - The Provider passes the store down to the components and then the connect tells the components which one the store applies to 
+- `connect(mapStateToProps, mapDispatchToProps)(App)`
+  - connect is a higher order function (a function that returns another function)
+  - connect accepts two parameters (see App.js for setup) -- we can name the params anything we want, but the two below are the standard 
+    - mapStateToProps - receives state 
+    - mapDispatchToProps - receives dispatch
+      - dispatch - what triggers the action - an action is an object we've created in order to send this action, we need to dispatch this object to the reducer 
+  - In the connect runs the first part of the function for what to listen to and the actions and then it's going to give those props to the App 
+  - You can now remove the state we declared before 
+- There is a bunch of boilerplate here, but it's nice to clean up everything 
 
 ## Redux Middleware
-- 
+- There's another part to the Redux diagram that was left out 
+  - Action -- Middleware --> Reducer --> Store --> Make changes 
+  - Middleware - listens for actions and it's a tunnel that actions go through and depending on what the middleware is it can modify the action or trigger another action 
+    - They're like triggers that actions go through and something happens within this box before it hits the reducer 
+- Why is middleware useful? 
+  - We can install redux-logger and helps with logging in the console so we can debug our app easily 
+  - After creating our logger function we need to connect it and the way we do this is through a function redux gives us `applyMiddleware`
+    - We add this to our createStore() function and then put the middleware we want to apply
+- Redux logger gives us a clean system to monitor each one of our actions, so no matter how many actions we have we can always predict what they're going to do 
+  - Because reducer is a pure function we always know it's going to return the same state 
+  - It gives us a chronological list of all the actions 
+- Redux is an important library that changes the way we think about building applications 
+  - Instead of thinking of code as something we just keep tacking on and keep building upon, Redux makes you think in a way of how can I make an app that is able to scale in a way where we have thousands of user interactions, how can we make it to where the information flows into one another into a predictable view into a system that is predictable 
+  - As a senior developer, how are you building systems that work really well together and that flow easily 
+  - How should you structure your app so that data flows smoothly? 
 
 ## Redux Async Actions
 - 

@@ -206,7 +206,15 @@
   - How should you structure your app so that data flows smoothly? 
 
 ## Redux Async Actions
-- 
+- We need to include our fetch request to our API, how do we make everything asynchronous because everything we have done so far has been synchronous
+  - This is where we use applyMiddleware again, this is where we use reduxThunk 
+    - reduxThunk is a middleware that provides a getState and dispatch function that are passed on, you're able to handle side effects, like AJAX calls with this package 
+- When we pass in middleware it goes in order, so first it will go through our thunk middleware and then our logger 
+- We want to keep track of the three status of our action, pending, request and failed 
+- To combine our reducers, we use combineReducers function that combines our reducers into a rootReducer 
+- Redux thunk is a middleware that waits and sees if any actions return a function instead of an object 
+  - It waits for a function and not an object like we have been returning 
+  - Without reduxThunk, our action wouldn't be understood if it was a function because it expects and object 
 
 ## Redux Project Structures
 - 5/7

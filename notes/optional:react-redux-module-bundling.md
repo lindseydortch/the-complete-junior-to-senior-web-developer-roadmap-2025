@@ -320,17 +320,28 @@
 - ESLint has changed the way to implement their config file, the best case is to do a .eslintrc.json 
 
 ## Quick Fix: Babel 7 Plugins
-- 7/7
+- A note on some code from the last lecture 
 
 ## Resources: Webpack Configurator
-- 
+- A tool on making your webpack configuration easier if you need it 
 
 ## Parcel
-- 
+- Parcel is a new bundler that has come out in response with the issues we see with configuring webpack 
 
 ## Parcel V2!
-- 
+- Note on announcement of Parcel 2 
 
 ## Section Summary
-- 
-
+- With Redux we're able to create a store and connect our component where we wanted without having to pass down props 
+- Why use redux? 
+  - Good for managing large state 
+  - Useful for sharing data between containers 
+  - Predictable state management using the 3 principles 
+    - The 3 principles 
+      - Single sources of truth 
+      - State is read only 
+      - Changes using pure functions 
+- Redux unidirectional flow
+  - Action -- Middleware --> Reducer --> Store --> Make changes 
+- We as developers can decide what goes into state and doesn't 
+- We learned that webpack helps us deliver the most optimized code to our browser and improves the critical render path 

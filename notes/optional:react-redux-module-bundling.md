@@ -271,19 +271,53 @@
 - A note on the current state of build systems 
 
 ## Converting To Vite@Latest
-- 6/7
+- Issues as your code gets bigger
+  - Some JS features won't work on some browsers and performance due to the amount of requests 
+- Frontend build systems process the source code (the code that we write) and emit/produce optimized JS fiels that work on all browsers and are optimized for performance 
+  - This is why we use create-react-app or vite 
+  - A lot of companies start of using these systems because you don't want to worry about what operating system or device our users are on 
+- It is easy to go back and forth with build tools 
+- In this course we'll use create-react-app
+- Usually when you go into a job your job is not to  decide the build tool to use because they most likely have that set up for you already  
 
 ## Introduction To Webpack
-- 
+- Webpack is used underneath the hood of create-react-app to bundle our files 
+- Webpack has 4 main ideas 
+  - Entry - usually your JavaScript file, where does webpack enter into your project? - typically your index.js 
+  - Output - where should webpack magically output all these files 
+    - We typically have a build folder where all these files output 
+  - Loaders - tools that compile or transpile your code 
+    - You send in a piece of code and it uses babel to transpile into a different form ex: es6 down to es5 
+  - Plugins - play a vital role in outputting your code, you can do different things based on how you want your code output 
 
 ## Update: Babel 7 + Eslint + Webpack 5
-- 
+- Note on just following along for the next lecture since Webpack changes all the time, it is very rare you will have to configure webpack on your own 
+  - Simply watch and understand the core principles taught 
 
 ## Webpack
-- 
+- You'll use webpack as a module bundler and a build tool, you use webpack dev server to serve the bundled app that you have in a local environment so that we can run a command here and we can test our app on our laptop 
+- We define an entry and output and then the `devServer` 
+- We need babel 
+  - Babel enables us to write our code in ES6 and then it transpiles ur code back to ES5 so that every single browser, without having all the ES6 features implemented on them can run the code 
+  - You can also test new JS features that haven't been implemented yet 
+  - babel-preset-env - checkes whatever browser we're running in and based on that browser's version and how old it is, it will know exactly which features they haven't implemented yet in the browser and make those changes to ES5 for the browser 
+  - If we want to use more experimental features of JavaScript (stages) 
+    - `babel-preset-stage-2` 
+    - There's a ton of different presets we can use 
+- Modules 
+  - Takes in rules where you tell what files to read and exclude 
+- resolve - resolves our extensions for js and jsx for us, so we don't have to use '.js'
+- eslint - checks your syntax and makes everything consistent 
+  - Think of eslint as a spellchecker 
+  - It allows you to maintain a consistent JS and React code style in your project 
+- The issue a lot of people have webpack is the syntax is super particular 
+- There is a eslint plugin for airbnb styleguide and to make sure your app is accessible for screenreaders 
 
 ## Updating Libraries: Babel 7 + Eslint
-- 
+- In the last video we installed babel, but a lot has changed since then 
+  - They removed a lot of packages and we can run and install different packages that were updated 
+  - Babel removed the presets because it made codebases very hard to maintain if there was a lot of code not using what is used in ECMAScript, they still exist, the naming has just changed 
+- ESLint has changed the way to implement their config file, the best case is to do a .eslintrc.json 
 
 ## Quick Fix: Babel 7 Plugins
 - 7/7

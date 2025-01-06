@@ -1,16 +1,18 @@
 // import ReactDOM from 'react-dom'; The new way to import createRoot:
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, combineReducers } from "redux";
 import { createLogger } from "redux-logger";
+import { thunk } from "redux-thunk";
 import "./index.css";
 import App from "./containers/App";
 import "tachyons";
-import { searchRobots } from "./reducers";
+import { searchRobots, requestRobots } from "./reducers";
 // import registerServiceWorker from './registerServiceWorker';
 
 const logger = createLogger();
-const store = createStore(searchRobots, applyMiddleware(logger));
+const rootReducer = combineReducers({ searchRobots, requestRobots });
+const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 
 const root = createRoot(document.getElementById("root"));
 root.render(

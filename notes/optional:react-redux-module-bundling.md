@@ -206,22 +206,69 @@
   - How should you structure your app so that data flows smoothly? 
 
 ## Redux Async Actions
-- 
+- We need to include our fetch request to our API, how do we make everything asynchronous because everything we have done so far has been synchronous
+  - This is where we use applyMiddleware again, this is where we use reduxThunk 
+    - reduxThunk is a middleware that provides a getState and dispatch function that are passed on, you're able to handle side effects, like AJAX calls with this package 
+- When we pass in middleware it goes in order, so first it will go through our thunk middleware and then our logger 
+- We want to keep track of the three status of our action, pending, request and failed 
+- To combine our reducers, we use combineReducers function that combines our reducers into a rootReducer 
+- Redux thunk is a middleware that waits and sees if any actions return a function instead of an object 
+  - It waits for a function and not an object like we have been returning 
+  - Without reduxThunk, our action wouldn't be understood if it was a function because it expects and object 
 
 ## Redux Project Structures
-- 5/7
+- As our app grows it will get bigger and bigger and bigger, having one container component that knows the redux store exists is not realistic, but because of the way Redux works we can use connect and pick and choose which components we want to connect to the Redux store 
+  - Redux makes communication in between components really easy 
+  - As the projects grow, group everything to the component with the DOM presentational components it needs, an actions, a constant, and reducer file 
+    - This makes it easier instead of having massive general folder names 
+    - It's also a good idea to have a folder and file for API fetch calls and a reusable function that we can reuse without having to keep typing out the .then and .catch statements 
 
 ## Project Files - Redux
-- 
+- A note on where to find finalized code for the robofriends app 
 
 ## Popular Tools For React + Redux
-- 
+- React is only a view layer library - this only enables you to build component driven interfaces
+  - Once you start building large scale applications you need to be able to build on top of React 
+- Tools we commonly use with React 
+  - React Router - for routing, changing pages, this is pretty much the standard 
+  - Utility Libraries - libraries that add to the current JS tools you get out of the box 
+    - Ramda - functional programming idealogy 
+    - lodash - also very popular 
+  - Styling 
+    - Glamourous 
+    - styled-components 
+    - CSS Modules   
+  - Gatsby JS - good for static websites in React (React uses Gatsby for their old documentation)
+  - Next.js - popular for server-side rendered apps 
+  - Material-UI - for reusable components 
+  - Semantic UI - also reusable React components 
+  - Tools to make Redux better
+    - Reselect - help with selectors 
+    - Redux-Saga - handles asynchronous actions in Redux - ReduxThunk, but supercharged 
+      - Can be complicated to learn at first 
+  - ImmutableJS 
+- Everytime you add a library, ask yourself, do you really need it because every library adds extra weight to the project 
+  - Think about how will the customers and other developers benefit by adding these libraries 
+  - As a senior developer, always consider the pros and cons on if you need something and if you do, analyze which tool is the best tool 
 
 ## Module Bundlers
-- 
+- As our apps get bigger and bigger we have more and more JS to deliver so we have a need for a bundler, it bundles these files for us nicely so we don't have to do it manually 
+  - Bundlers are able to combine a bunch of things together like HTML and CSS and bundle our JS 
+  - create-react-app underneath the hood uses webpack to do this for us 
+- Bundler Options 
+  - Parcel - came out with the idea of 0 configuration 
+  - Webpack 
+  - rollup.js - good for tree shaking, throws out any code we don't need to use 
+- Keep in mind
+  - When should you use one of the three bundlers?  
+    - This depends, sometimes you don't get control where it's set up 
+    - Use parcel if you're on a project by yourself so you can get up and running easily 
+    - rollup - for when you're shipping npm packages 
+  - Configurations and configuration files always change 
+    - Don't spend all your time on how to do a configuration file 
 
 ## Modern Build Systems In 2024
-- 
+- A note on the current state of build systems 
 
 ## Converting To Vite@Latest
 - 6/7

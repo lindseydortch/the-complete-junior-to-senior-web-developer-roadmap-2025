@@ -1,7 +1,7 @@
 # Performance Part 2
 
 ## Bruno's Request
-- 
+- 1/9
 
 ## Section Overview
 - 
@@ -16,7 +16,7 @@
 - 
 
 ## Exercise: #1 - Code Splitting
-- 
+- 2/9
 
 ## Code Splitting Part 1
 - 
@@ -31,7 +31,7 @@
 - 
 
 ## Code Splitting Part 4
-- 
+- 3/9
 
 ## Exercise: #2 - Code Splitting
 - 
@@ -46,7 +46,7 @@
 - 
 
 ## React Performance Optimizations 2
-- 
+- 4/9
 
 ## Resources: React Performance 2
 - 
@@ -61,7 +61,7 @@
 - 
 
 ## Opt-In Service Worker in CRA
-- 
+- 5/9
 
 ## Resources: Progressive Web Apps
 - 
@@ -76,7 +76,7 @@
 - 
 
 ## PWA - App Manifest
-- 
+- 6/9
 
 ## Resources: PWA - App Manifest
 - 
@@ -91,7 +91,7 @@
 - 
 
 ## Exercise: #3 - Your Own PWA
-- 
+- 7/9
 
 ## Quick Note: Upcoming Video
 - 
@@ -106,7 +106,7 @@
 - 
 
 ## Solution Part 2 - PWA
-- 
+- 8/9
 
 ## Solution Files - PWA
 - 
@@ -121,7 +121,7 @@
 - 
 
 ## Section Summary
-- 
+- 9/9
 
 ## Course Check-In
 - 

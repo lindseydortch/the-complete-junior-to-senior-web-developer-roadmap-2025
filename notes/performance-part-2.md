@@ -53,16 +53,20 @@
   - Lazy loading - loading them after your page becomes interactive 
 
 ## Exercise: #1 - Code Splitting
-- 2/9
+- Run `npm run build` and look at what is output 
 
 ## Code Splitting Part 1
-- 
+- Set up the create-react-app and then set up the rest of the demo  
+- With code splitting we will be able to build up and request the files we only need to load that component 
 
 ## ES2020: Dynamic import()
-- 
+- ES2020 allowed for us to use dynamic imports to help with code splitting and is now native to JavaScript and not just React 
 
 ## Code Splitting Part 2
-- 
+- In order to use code splitting we need to learn the import syntax 
+  - By using import in React we automatically tell it to code split 
+  - With the dynamic import, we tell the app to import whenever it is ready 
+    - This is asynchronous and then we can use .then() 
 
 ## Code Splitting Part 3
 - 

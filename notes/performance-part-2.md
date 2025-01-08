@@ -80,19 +80,47 @@
 - Initially when loading with async components there is a flash, this is something you have to look at as a tradeoff 
 
 ## Code Splitting Part 4
-- 3/9
+- When it comes to code splitting there are a couple of options 
+  - Route-Based chunking or splitting 
+    - Splitting up the JS files based on the routes 
+    - Component based chunking 
+      - Code splitting not only on the route level, but at the component level as well 
+- Think about the two options as your app gets bigger and bigger 
+- React has documentation on code splitting 
+  - They have react router and react-loadable (could be outdated information)
 
 ## Exercise: #2 - Code Splitting
-- 
+- Exercise on code splitting 
 
 ## Solution: React.lazy() Code Splitting
-- 
+- React.lazy() allows us to do code splitting easily (this may be outdated with the new suspense component)
+- `npm audit fix --force` - make sure to update your packages, you won't be able to get all of them, but you can manually review some of the updates 
+- We can use `React.lazy` when we import the components 
+  - While our page is being imported, the user is going to be staring at the page wondering what happens, so this should be wrapped in a suspense component with a loading fallback 
+- To quickly update your package with any minor version you do `npm update` 
 
 ## React Performance Optimizations
-- 
+- How can we optimize our code in React? 
+  - You want to check the React performance tool 
+    - `localhost:3000/?react._perf`
+    - Nothing happens, but now we can record and analyze the performance of our app 
+    - We can now see our components and what they're doing in the performance tab 
+    - We want to look at the CPU section - this means JS is happening 
+      - In user timing - you can scroll into what components and shows us what kind of work it's doing and we can see it updating, rendering, etc. 
+    - You can see fine grain timing of the components you're using 
+  - Keep in mind when you run this, you're running this on the dev version of your app which is a lot slower than the production version of your app 
+- How can we help the load process with Redux? 
+  - By using redux we can be smart about what component updates, we can connect components at a lower level 
+  - Because every time you update a top level component it re-renders your children components all the way down 
+- Also use React devTools to see your updates 
+  - It will highlight where your component is being re-rendered 
+  - The color represents how often things are being re-rendered 
+    - The faster they're being re-rendered it is closer to red the slower is blue 
+  - This helps detect unnecesarry re-render cycle 
+  - Keep in mind seeing yellow and red isn't a bad thing with some things you can't avoid this 
 
 ## Resources: React Performance
-- 
+- Note on devTools and how to view React performance in devTools 
 
 ## React Performance Optimizations 2
 - 4/9

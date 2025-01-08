@@ -69,7 +69,15 @@
     - This is asynchronous and then we can use .then() 
 
 ## Code Splitting Part 3
-- 
+- We will be creating an async component 
+  - We have the typical imports (React and Component, this is outdated)
+  - We are going to create a Higher Order Component 
+    - Higher Order Component - a component that returns another component (like a higher order function - a function that returns a function)
+    - Like connect() in Redux 
+    - Async components are pretty standard the code is pretty much the same all over 
+    - The React docs have a higher order components section 
+  - **The code in this component may be outdated due to still using class components** 
+- Initially when loading with async components there is a flash, this is something you have to look at as a tradeoff 
 
 ## Code Splitting Part 4
 - 3/9

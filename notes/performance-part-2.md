@@ -123,7 +123,10 @@
 - Note on devTools and how to view React performance in devTools 
 
 ## React Performance Optimizations 2
-- 4/9
+- We have a lifecycle we can use called `shouldComponentUpdate()`
+  - Receives nextProps and nextState
+  - We returned false - to tell it to never re-render this component 
+  - Gives us the ability to control this update cycle 
 
 ## Resources: React Performance 2
 - 

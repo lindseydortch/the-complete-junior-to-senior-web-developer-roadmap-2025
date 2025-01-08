@@ -6,6 +6,7 @@ import Scroll from "../components/Scroll";
 import "./App.css";
 
 import { setSearchField, requestRobots } from "../actions";
+import Header from "../Header";
 
 const mapStateToProps = state => {
   return {
@@ -37,7 +38,7 @@ class App extends Component {
       <h1>Loading</h1>
     ) : (
       <div className="tc">
-        <h1 className="f1">RoboFriends</h1>
+        <Header />
         <SearchBox searchChange={onSearchChange} />
         <Scroll>
           <CardList robots={filteredRobots} />

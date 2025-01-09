@@ -127,18 +127,66 @@
   - Receives nextProps and nextState
   - We returned false - to tell it to never re-render this component 
   - Gives us the ability to control this update cycle 
+- State updates are not synchronous, anytime you need to derive next state based on the current state, so you need to grab the current state and return the new state
+- In shouldComponentUpdate, we can check to see if the state changes 
+  - You can also extend a PureComponent will only re-render if the props change 
+    - It does shallow comparison of props it may miss prop changes with deeply nested props 
+  - Don't overuse shouldComponentUpdate because you're running another function - this is called before render - use it catiously 
+    - Actually measure your performance 
+- A tool why-did-you-update? 
+  - Will show you avoidable re-renders and you can implement it into your React app with a few lines 
 
 ## Resources: React Performance 2
-- 
+- Link to Why Did you Render npm package: https://www.npmjs.com/package/@welldone-software/why-did-you-render
+- Links to learning more about the asynchronous nature of setState (this could be obsolete with newer React features)
 
 ## Optimizing Code Review
-- 
+- Optimize JS 
+  - Only load what's needed 
+    - Code Splitting 
+    - Tree Shaking 
+      - Done behind the scenes for us with webpack 
+      - Removes unused code from your app 
+  - Avoid blocking main thread 
+    - Minimizing JS parse/compile/execute time 
+  - Avoid memory leaks 
+    - Memory leaks - making sure we don't keep adding memory into our apps 
+    - Example, if we have too many event listeners and don't get rid of them when we leave the page 
+  - Avoid multiple re-rendering 
 
 ## Resources: Tree Shaking 101
-- 
+- A guide to follow on how to utilize tree shaking in your apps: https://web.dev/articles/reduce-javascript-payloads-with-tree-shaking
 
 ## Progressive Web Apps
-- 
+- What is a Progressive Web App? 
+  - A web app is a website that allows users to interact with the web page in many ways 
+    - However, whether it is a game, twitter or Facebook it is in the browser 
+  - A native app - is an app that is on a mobile phone 
+    - Meant to work on a native platoform 
+  - Progressive web apps were made to make web apps in browser behave more like the apps on your phone 
+- To create a web app all you need to know is some HTML, CSS and JS and you're good to go 
+  - To create a native app, you need to learn a native language like Java for Android Apps or Swift/Objective C for iPhone apps 
+    - Unlike viewing on the broswer native apps have all the files needed to view on your mobile phone 
+    - This is why files live on your phone 
+    - Native apps can send you push applications and even work offline and you get access to the device software 
+  - Native apps are built to work offline 
+  - Native apps you can find on the webstore 
+- This is where progressive web apps come in, you can make web apps behave like native apps
+  - Think of progressive web apps as web apps, but they behave ore like native apps 
+  - Existing web apps would be associated on their existing web server and you don't have to submit the changes to the app store 
+  - The same app will run on all browser platforms - you don't have to worry about it being built for Android and iOS 
+- What's the goal of all of this? 
+  - Better user experience 
+  - Faster websites 
+  - With new HTML5 API's we're starting to get access to hardware that only natives apps used to have access to 
+- If you go to whatcanwedo.today - you can see what we can do with our web apps 
+- Google came up with PWA's, but has less support from Apple 
+  - Google has more market share in the web, while apple has their closed ecosystem of the web store 
+  - It's always good to think about these things when working with technologies developed by these big companies 
+- Progressive web apps do enhance the experience of our users 
+- Create-react-app comes preset with PWA capabilities 
+- How do we make our robofriends app into a PWA? 
+  - Lighthouse by Google has a plugin we can use to see how close we are to being a progressive web app 
 
 ## Opt-In Service Worker in CRA
 - 5/9

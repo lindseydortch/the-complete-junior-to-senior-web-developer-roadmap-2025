@@ -189,28 +189,61 @@
   - Lighthouse by Google has a plugin we can use to see how close we are to being a progressive web app 
 
 ## Opt-In Service Worker in CRA
-- 5/9
+- A note on changes to service-worker file, so just watch and notate the process instead of coding along for the next few videos 
 
 ## Resources: Progressive Web Apps
-- 
+- Links to further resources on PWA's 
 
 ## Progressive Web Apps Examples
-- 
+- Think of a PWA a running list of things you can do than a static list  
+- In devTools and go to application and go to the manifest we can see the "Add to homescreen" button that appears for mobile users 
+  - This creates a Chrome App on your desktop or mobile
+- The 3 most important parts to build your own PWA 
+  - HTTPS 
+  - App Manifest 
+  - Service Worker 
 
 ## PWA - HTTPS
-- 
+- Progressive Web Apps have a certain checklist (this list can get constantly changed)
+  - We've done most of the list, this is why we have 3 things we need to focus on 
+- HTTPS 
+  - Prevents bad actors from tampering with communications between our app and browser 
+  - Google is really pushing for HTTPs encryption 
+  - If you have forms on your website and they're not HTTPs it'll show up here as not secure 
+  - In general you should always serve your websites through HTTPS 
+- How do we have https already? 
+  - We have this out of the box with github-pages 
+  - Not all websites can be hosted on github-pages 
+  - The easiest way to get HTTPS is to use Let's Encrypt - a certificate authority - gives you free ones that are easy to set up 
+  - Cloudefare - is a CDN -- server that you can put your files on 
+    - They host your site on their pages and automatically through them you can get HTTPs
 
 ## Resources: PWA - HTTPS
-- 
+- Links to the progressive web apps checklist and let's encrypt and a note on how to setup github pages 
 
 ## PWA - App Manifest
-- 6/9
+- For a progressive web app to behave like a native app we need to mimic not just the function of a native app, but also some of the views that we get with it or the shell 
+  - The idea is to make the web app as indistinguishable as possible to a real mobile app and we can do this with the app manifest 
+- A lot of people forget to include the meta tag with viewport to optimize the site based on the device 
+  - This is a must, but it will warn you in the lighthouse report if you are missing this meta tag 
+- The manifest.json file is read by the browser and shows us the icon we will see if we download the app to our phone 
+  - How do we generate these icons?
+    - Through our favicon
+    - There is a tool that generates all the favicons we need based by the image we give it at 
+      - realfavicongenerator 
+    - You just include them all in the src folder and then make sure they're pointed to in the manifest.json file 
+- SplashScreen - in old versions of Chrome for Android tapping on the homescreen icon for an app would take up to 100 milliseconds and the user would see a blank white screen 
+  - Spalshscreen loads the background color, name and web app that it gets from the manifest.json to show the user it is loading 
 
 ## Resources: PWA - App Manifest
-- 
+- Links to the resources mentioned in the above lecture 
 
 ## PWA - Service Workers
-- 
+- Service Worker 
+  - Is a script that your browser runs in the background separate from the web page and web app 
+  - It is generally used for features that don't need a web page or user interaction 
+  - Think of a service worker as another worker in the background that runs along with the main thread 
+  - A service worker acts as what we call a programmable proxy allowing us to control what happens on a request by request basis, this is the reason we can make our progressive web apps work offline 
 
 ## Update for CRA v4 and React 17+
 - 

@@ -123,43 +123,127 @@
 - Note on devTools and how to view React performance in devTools 
 
 ## React Performance Optimizations 2
-- 4/9
+- We have a lifecycle we can use called `shouldComponentUpdate()`
+  - Receives nextProps and nextState
+  - We returned false - to tell it to never re-render this component 
+  - Gives us the ability to control this update cycle 
+- State updates are not synchronous, anytime you need to derive next state based on the current state, so you need to grab the current state and return the new state
+- In shouldComponentUpdate, we can check to see if the state changes 
+  - You can also extend a PureComponent will only re-render if the props change 
+    - It does shallow comparison of props it may miss prop changes with deeply nested props 
+  - Don't overuse shouldComponentUpdate because you're running another function - this is called before render - use it catiously 
+    - Actually measure your performance 
+- A tool why-did-you-update? 
+  - Will show you avoidable re-renders and you can implement it into your React app with a few lines 
 
 ## Resources: React Performance 2
-- 
+- Link to Why Did you Render npm package: https://www.npmjs.com/package/@welldone-software/why-did-you-render
+- Links to learning more about the asynchronous nature of setState (this could be obsolete with newer React features)
 
 ## Optimizing Code Review
-- 
+- Optimize JS 
+  - Only load what's needed 
+    - Code Splitting 
+    - Tree Shaking 
+      - Done behind the scenes for us with webpack 
+      - Removes unused code from your app 
+  - Avoid blocking main thread 
+    - Minimizing JS parse/compile/execute time 
+  - Avoid memory leaks 
+    - Memory leaks - making sure we don't keep adding memory into our apps 
+    - Example, if we have too many event listeners and don't get rid of them when we leave the page 
+  - Avoid multiple re-rendering 
 
 ## Resources: Tree Shaking 101
-- 
+- A guide to follow on how to utilize tree shaking in your apps: https://web.dev/articles/reduce-javascript-payloads-with-tree-shaking
 
 ## Progressive Web Apps
-- 
+- What is a Progressive Web App? 
+  - A web app is a website that allows users to interact with the web page in many ways 
+    - However, whether it is a game, twitter or Facebook it is in the browser 
+  - A native app - is an app that is on a mobile phone 
+    - Meant to work on a native platoform 
+  - Progressive web apps were made to make web apps in browser behave more like the apps on your phone 
+- To create a web app all you need to know is some HTML, CSS and JS and you're good to go 
+  - To create a native app, you need to learn a native language like Java for Android Apps or Swift/Objective C for iPhone apps 
+    - Unlike viewing on the broswer native apps have all the files needed to view on your mobile phone 
+    - This is why files live on your phone 
+    - Native apps can send you push applications and even work offline and you get access to the device software 
+  - Native apps are built to work offline 
+  - Native apps you can find on the webstore 
+- This is where progressive web apps come in, you can make web apps behave like native apps
+  - Think of progressive web apps as web apps, but they behave ore like native apps 
+  - Existing web apps would be associated on their existing web server and you don't have to submit the changes to the app store 
+  - The same app will run on all browser platforms - you don't have to worry about it being built for Android and iOS 
+- What's the goal of all of this? 
+  - Better user experience 
+  - Faster websites 
+  - With new HTML5 API's we're starting to get access to hardware that only natives apps used to have access to 
+- If you go to whatcanwedo.today - you can see what we can do with our web apps 
+- Google came up with PWA's, but has less support from Apple 
+  - Google has more market share in the web, while apple has their closed ecosystem of the web store 
+  - It's always good to think about these things when working with technologies developed by these big companies 
+- Progressive web apps do enhance the experience of our users 
+- Create-react-app comes preset with PWA capabilities 
+- How do we make our robofriends app into a PWA? 
+  - Lighthouse by Google has a plugin we can use to see how close we are to being a progressive web app 
 
 ## Opt-In Service Worker in CRA
-- 5/9
+- A note on changes to service-worker file, so just watch and notate the process instead of coding along for the next few videos 
 
 ## Resources: Progressive Web Apps
-- 
+- Links to further resources on PWA's 
 
 ## Progressive Web Apps Examples
-- 
+- Think of a PWA a running list of things you can do than a static list  
+- In devTools and go to application and go to the manifest we can see the "Add to homescreen" button that appears for mobile users 
+  - This creates a Chrome App on your desktop or mobile
+- The 3 most important parts to build your own PWA 
+  - HTTPS 
+  - App Manifest 
+  - Service Worker 
 
 ## PWA - HTTPS
-- 
+- Progressive Web Apps have a certain checklist (this list can get constantly changed)
+  - We've done most of the list, this is why we have 3 things we need to focus on 
+- HTTPS 
+  - Prevents bad actors from tampering with communications between our app and browser 
+  - Google is really pushing for HTTPs encryption 
+  - If you have forms on your website and they're not HTTPs it'll show up here as not secure 
+  - In general you should always serve your websites through HTTPS 
+- How do we have https already? 
+  - We have this out of the box with github-pages 
+  - Not all websites can be hosted on github-pages 
+  - The easiest way to get HTTPS is to use Let's Encrypt - a certificate authority - gives you free ones that are easy to set up 
+  - Cloudefare - is a CDN -- server that you can put your files on 
+    - They host your site on their pages and automatically through them you can get HTTPs
 
 ## Resources: PWA - HTTPS
-- 
+- Links to the progressive web apps checklist and let's encrypt and a note on how to setup github pages 
 
 ## PWA - App Manifest
-- 6/9
+- For a progressive web app to behave like a native app we need to mimic not just the function of a native app, but also some of the views that we get with it or the shell 
+  - The idea is to make the web app as indistinguishable as possible to a real mobile app and we can do this with the app manifest 
+- A lot of people forget to include the meta tag with viewport to optimize the site based on the device 
+  - This is a must, but it will warn you in the lighthouse report if you are missing this meta tag 
+- The manifest.json file is read by the browser and shows us the icon we will see if we download the app to our phone 
+  - How do we generate these icons?
+    - Through our favicon
+    - There is a tool that generates all the favicons we need based by the image we give it at 
+      - realfavicongenerator 
+    - You just include them all in the src folder and then make sure they're pointed to in the manifest.json file 
+- SplashScreen - in old versions of Chrome for Android tapping on the homescreen icon for an app would take up to 100 milliseconds and the user would see a blank white screen 
+  - Spalshscreen loads the background color, name and web app that it gets from the manifest.json to show the user it is loading 
 
 ## Resources: PWA - App Manifest
-- 
+- Links to the resources mentioned in the above lecture 
 
 ## PWA - Service Workers
-- 
+- Service Worker 
+  - Is a script that your browser runs in the background separate from the web page and web app 
+  - It is generally used for features that don't need a web page or user interaction 
+  - Think of a service worker as another worker in the background that runs along with the main thread 
+  - A service worker acts as what we call a programmable proxy allowing us to control what happens on a request by request basis, this is the reason we can make our progressive web apps work offline 
 
 ## Update for CRA v4 and React 17+
 - 

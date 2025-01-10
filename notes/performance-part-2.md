@@ -330,8 +330,17 @@
 - A link to a guide on how to deploy your PWA to the app store 
 
 ## Section Summary
-- 9/9
+- JS optimizations 
+  - Only load what's needed: 
+    - Code Splitting 
+    - Tree shaking 
+  - Aboid blocking main thread 
+  - Avoid memory leaks 
+  - Avoid multiple re-rendering 
+- PWA 
+  - HTTPS
+  - App Manifest 
+  - Service Worker 
 
 ## Course Check-In
-- 
-
+- Place to submit a review on the course so far 

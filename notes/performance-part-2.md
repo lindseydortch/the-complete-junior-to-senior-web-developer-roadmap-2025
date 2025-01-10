@@ -244,46 +244,103 @@
   - It is generally used for features that don't need a web page or user interaction 
   - Think of a service worker as another worker in the background that runs along with the main thread 
   - A service worker acts as what we call a programmable proxy allowing us to control what happens on a request by request basis, this is the reason we can make our progressive web apps work offline 
+  - Service workers have been added to browser including safari 
+  - Besides offline experiences it also helps with background syncs and push notifications , but we will mainly focus on how they provide offline experiences 
+- How do we use a service worker? 
+  - create-react-app created a serviceWorker.js for us (this information may be out of date with things like vite)
+  - There is a website called isserviceworkerready to see which browsers have implemented service workers 
+- Registering the service worker is going to cause the browser to start the service worker install step in the background again with the other worker 
+  - Once it is done it will be terminated to save memory or it will run in the background to keep track of messages and events that happen in the background 
+  - You can see the service workers in the application tab in devTools 
+- Without a service worker our browser is going to send a request to the network 
+  - We tell the browser to talk to the service worker first 
+  - It acts as a network proxy - intercepts any requests first made to the network and checks to see if you really need to communicate with the network 
+  - The service worker then tries to access the cache API 
+    - Cache API - kind of like a box where the browser stores files such as JavaScript files, CSS files, any static files 
+    - The serviceworker then checks to see if what they need in that box and then brings it to the browser and then if it doesn't it goes back to the browser and then says it needs to talk to the network 
+  - Cache storage - you can see in Application in devTools - you can see the css, icons, etc. 
+    - We cache the shell of the website so that on repeat visits, even though the very first time the user browses and goes to a website it'll have to go to the network because this cache API will be empty
+  - Once the network returns with those files, we can cache those files and on repeat visits, the app shell can be visited repeatedly 
+- If create-react-app didn't create the serviceWorkers for us, we can create one ourselves 
 
 ## Update for CRA v4 and React 17+
-- 
+- In 2020, the core react team doesn't ship with PWA anymore - there are some additional steps you will have to run to convert your react app to be able to perform the next step modifications to be PWA compliant 
+  - Note on how to do this, if needed 
 
 ## PWA - Final Thoughts
-- 
+- PWA have goals in mind, make website better and faster for the user, however as with all new technology, it still has some kinks to work out 
+- With these sorts of technology be careful not to get caught up in the hype 
 
 ## Exercise: #3 - Your Own PWA
-- 7/9
+- Exercise on making the robofriends app a PWA 
 
 ## Quick Note: Upcoming Video
-- 
+- Note that the service worker file for the next video is out of date with the updates to create-react-app 
 
 ## Deploying Our React App
-- 
+- With a create-react-app it's harder to create github pages 
+  - First thing we need to do is download `gh-pages` via npm
+  - Then we need to run a deploy command
+    - `"predeploy": "npm run build"`
+    - `"deploy": "gh-pages -d build"`
+  - We then need to add in a homepage and the repo name into our package.json 
+  - Make sure the branch in Github shows `gh-pages`
+- Once deployed then run the tests on lighthouse 
 
 ## Service Worker Update
-- 
+- An update on what has changed with create-react-app 
+  - On default the service worker is `.unregister()` 
+  - You have to opt into the service worker with the new updates
+  - You can disable service workers in developer mode 
 
 ## Solution Part 1 - PWA
-- 
+- Lighthouse gives is great about giving you resources to fix your scores 
+- They also give you hints about ways to improve the PWA 
+- Accessibility 
+  - Is very important for everyone to be able to experience your site 
+  - You can see ways to improve your site for accessibility 
+  - aria-label - a label screenreaders can use 
+- SEO 
+  - meta: description - recommended for SEO so website crawlers can read the description to see what your website is about 
+- Performance 
+  - Serve images in next/gen formats - we don't get too much control of the images when they come from an API 
+  - Performance score will depend on your internet speed 
 
 ## Solution Part 2 - PWA
-- 8/9
+- If we go to Applications in devTools we can go to our cache storage and we can see what we are caching 
+  - We could add a JSON file of all of our robots 
+- The one thing we're missing is our manifest file 
+  - Generate your different favicons 
+  - You want to extract the package you download to your site into the public section 
+  - And hen add in the code given from the generator
+    - You may want to add `%PUBLIC_URL%/` in front of the URL paths as seen in the other link tags 
+- We want to update our manifest.json file and add in the update favicons based on what the lighthouse report says is missing 
 
 ## Solution Files - PWA
-- 
+- A link to the repos and a link to another tool that helps improve your frontend performance:
+  - Progressive tooling: https://progressivetooling.com/
 
 ## Quick Note: Upcoming Video
-- 
+- A note about the upcoming video being optional 
 
 ## OPTIONAL: Converting Our App To PWA
-- 
+- An example of making another app a PWA 
 
 ## Deploying your PWA to the App Store
-- 
+- A link to a guide on how to deploy your PWA to the app store 
 
 ## Section Summary
-- 9/9
+- JS optimizations 
+  - Only load what's needed: 
+    - Code Splitting 
+    - Tree shaking 
+  - Aboid blocking main thread 
+  - Avoid memory leaks 
+  - Avoid multiple re-rendering 
+- PWA 
+  - HTTPS
+  - App Manifest 
+  - Service Worker 
 
 ## Course Check-In
-- 
-
+- Place to submit a review on the course so far 

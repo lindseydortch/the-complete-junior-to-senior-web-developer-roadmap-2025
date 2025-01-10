@@ -307,19 +307,27 @@
   - Performance score will depend on your internet speed 
 
 ## Solution Part 2 - PWA
-- 8/9
+- If we go to Applications in devTools we can go to our cache storage and we can see what we are caching 
+  - We could add a JSON file of all of our robots 
+- The one thing we're missing is our manifest file 
+  - Generate your different favicons 
+  - You want to extract the package you download to your site into the public section 
+  - And hen add in the code given from the generator
+    - You may want to add `%PUBLIC_URL%/` in front of the URL paths as seen in the other link tags 
+- We want to update our manifest.json file and add in the update favicons based on what the lighthouse report says is missing 
 
 ## Solution Files - PWA
-- 
+- A link to the repos and a link to another tool that helps improve your frontend performance:
+  - Progressive tooling: https://progressivetooling.com/
 
 ## Quick Note: Upcoming Video
-- 
+- A note about the upcoming video being optional 
 
 ## OPTIONAL: Converting Our App To PWA
-- 
+- An example of making another app a PWA 
 
 ## Deploying your PWA to the App Store
-- 
+- A link to a guide on how to deploy your PWA to the app store 
 
 ## Section Summary
 - 9/9

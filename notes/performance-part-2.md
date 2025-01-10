@@ -272,19 +272,39 @@
 - With these sorts of technology be careful not to get caught up in the hype 
 
 ## Exercise: #3 - Your Own PWA
-- 7/9
+- Exercise on making the robofriends app a PWA 
 
 ## Quick Note: Upcoming Video
-- 
+- Note that the service worker file for the next video is out of date with the updates to create-react-app 
 
 ## Deploying Our React App
-- 
+- With a create-react-app it's harder to create github pages 
+  - First thing we need to do is download `gh-pages` via npm
+  - Then we need to run a deploy command
+    - `"predeploy": "npm run build"`
+    - `"deploy": "gh-pages -d build"`
+  - We then need to add in a homepage and the repo name into our package.json 
+  - Make sure the branch in Github shows `gh-pages`
+- Once deployed then run the tests on lighthouse 
 
 ## Service Worker Update
-- 
+- An update on what has changed with create-react-app 
+  - On default the service worker is `.unregister()` 
+  - You have to opt into the service worker with the new updates
+  - You can disable service workers in developer mode 
 
 ## Solution Part 1 - PWA
-- 
+- Lighthouse gives is great about giving you resources to fix your scores 
+- They also give you hints about ways to improve the PWA 
+- Accessibility 
+  - Is very important for everyone to be able to experience your site 
+  - You can see ways to improve your site for accessibility 
+  - aria-label - a label screenreaders can use 
+- SEO 
+  - meta: description - recommended for SEO so website crawlers can read the description to see what your website is about 
+- Performance 
+  - Serve images in next/gen formats - we don't get too much control of the images when they come from an API 
+  - Performance score will depend on your internet speed 
 
 ## Solution Part 2 - PWA
 - 8/9

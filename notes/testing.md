@@ -1,7 +1,7 @@
 # Testing
 
 ## Bruno's Request
-- 
+- 1/8 
 
 ## Section Overview
 - 
@@ -16,7 +16,7 @@
 - 
 
 ## Note: The Next Videos
-- 
+- 2/8
 
 ## Unit Tests
 - 
@@ -31,7 +31,7 @@
 - 
 
 ## Setting Up Jest
-- 
+- 3/8
 
 ## Our First Tests
 - 
@@ -46,7 +46,7 @@
 - 
 
 ## Asynchronous Tests 2
-- 
+- 4/8
 
 ## Resources: Jest Cheat Sheet
 - 
@@ -61,7 +61,7 @@
 - 
 
 ## Introduction To Enzyme
-- 
+- 5/8
 
 ## Resources: Enzyme
 - 
@@ -76,7 +76,7 @@
 - 
 
 ## Exercise: #2 - Testing Stateful Components
-- 
+- 6/8
 
 ## Testing Stateful Components
 - 
@@ -91,7 +91,7 @@
 - 
 
 ## Testing Connected Components 2
-- 
+- 7/8
 
 ## Exercise #4 - Testing All Components
 - 
@@ -106,7 +106,7 @@
 - 
 
 ## Note: What Test is Best?
-- 
+- 8/8
 
 ## Section Summary
 - 

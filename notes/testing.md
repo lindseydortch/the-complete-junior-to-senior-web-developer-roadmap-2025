@@ -1,13 +1,17 @@
 # Testing
 
 ## Bruno's Request
-- 1/8 
+- Bruno needs some unit tests in their app 
 
 ## Section Overview
-- 
+- As the complexity and size of the code increases, it becomes harder and harder for someone to fix a bug that may arise 
+  - Bugs cost companies a lot of money, luckily we have testing 
+- Testing - is a method in software develpment where individual units of source code, assets or programs are tested to see whether they work properly 
+- TDD - Test driven development 
+  - The idea of writing tests before you actually write your application code, so that you can start writing code based on the tests you provide 
 
 ## Updated Code For This Section
-- 
+- Updated code for this section 
 
 ## Types of Tests
 - 

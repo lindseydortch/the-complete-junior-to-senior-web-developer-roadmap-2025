@@ -143,19 +143,37 @@
     - Most of the time you use these as dev dependencies 
 
 ## Setting Up Jest
-- 3/8
+- Setting up our small Google example 
+- Jest automatically looks for a folder with .test or spec 
+- The it() function 
+  - Pretty much all of these libraries have the same syntax 
 
 ## Our First Tests
-- 
+- Because we're in node we don't have the import syntax (this might be out of date)
+- With jest we can watch the `--watch` to our scripts 
+  - npm test and npm start don't need the run command 
+- We need to export our database as well, but this is not realistic 
+  - Going through your real database is expensive, so we just mock it 
+- Since we don't have access to the database we'd have to manually change out the function for our mockdatabase 
+  - So this is why you want your functions to be pure and you also want to add things to them like a dependency injection 
+    - Dependency Injection - in order to make a function reusable and use it in other parts of our codebase, have the database injected into the function, so anyone can inject the database by passing it a parameter 
+- It's not just meaningful to run the function, we want to assert that this does what we expect it to do 
+- In the docs you can see expect and toBe
 
 ## Writing Tests
-- 
+- With tests, the more you have the better it is 
+  - It's better to have a lot of tests that cover a lot of scenarios
+  - Don't worry about DRY here since these never go into production 
+- To test how many items are returned back to us, we can add .length if it's an array and .toEqual to whatever we expect that number to be 
+- Just because your test passes, it doesn't mean it works, it's better to write them to fail first 
+- We can group tests that are similar with a function called describe 
 
 ## Quick Note: Upcoming API Endpoint + ES6 Modules
-- 
+- In the next video, you don't need to download node-fetch if you're on a later version of node 
+- Also API may have changed, so if it doesn't work use one of the other listed APIs instead to go along with lecture 
 
 ## Asynchronous Tests
-- 
+- One of the harder tests to write is asynchronous tests 
 
 ## Asynchronous Tests 2
 - 4/8

@@ -84,31 +84,96 @@
 - The next videos cover a few more topics we may want to revisit after finishing this section, everything will most likely make sense at the end of the section 
 
 ## Unit Tests
-- 
+- Should cover all small pure functions of an application 
+- Small pure functions that take an input and return an output and that do one thing really well, one thing at a time are the way to go, it's the main principal in functional program 
+  - This allows us to write our unit tests really easily over writing OOP 
+- Pure function is a function that has no side effects, like affecting another part of a program and always return something based on an input 
+  - It is deterministic, meaning you can put in the same input a million times and you'll still get the same output a million times the same output every time 
+  - React components are mostly pure functions 
+- You'll see unit tests 90% of the time 
+- Unit tests don't test the contract 
+  - Contract - the connection between things
+    - Could be a contract between a server and a database, it could be a contract between a function and another function 
+  - Unit tests would test the sign in function and a load function but not the contract between them 
+- When it comes to unit tests, write code that is separated away nicely 
+  - Clean, functional components or functions which make it easier to unit test because everything is small chunks 
+  - This also leads to nice maintainable code in the long run 
 
 ## Integration Tests
-- 
+- All about cross communication between different units of code 
+  - You would probably use spies from a mocking library to ensure expected side effects instead of asserting an output 
+  - Stubs to mock and modify parts of a process that are not inside of the specific test
+    - Such as mocking a database call 
+- A browser or browser like environment could help with the processes that are dependent on the window object 
+- Integration tests has many different definitions 
+  - Think of integration tests as connecting components to see how they work together, instead of inidividual small units 
+  - The downside is they are more expensive a dev has to slow down and write them 
+  - If you change something your tests will break 
+  - They can be brittle and are much harder to write, it's hard to say when you have 100% completion 
+- It is rare to see a big company with great integration tests 
+- Start with unit tests and then start incorporating integration tests as well 
 
 ## Automation Testing
-- 
+- Also called end-to-end testing 
+  - UI tests that are always running inside a browser or inside of a browser like environment 
+  - They need to make sure these scenarios work from the user's point of view 
+- In an ideal world we have automation tests everywhere 
+  - These tests are the hardest to setup, users have different devices, etc. 
+  - This is why there are services you can pay that do this for you 
+  - You usually only find this at bigger companies because there are so many edge cases and expensive to implement 
+- When to use what automation service 
+  - Test Cafe - when you just want to get started and not worry about cross-browser and have all the tools in one 
+  - webdriver.io - The best documentation 
+  - Nightmare - you want simple ways to automate user actions or do something cool like web scraping
+- The important thing with automation testing is like the other name suggests you want to test the entire process of your UI  
+  - Many companies instead of writing these tests will hire people to do your automation testing 
+- We want to create too different processes 
+  - One for running unit tests and integration tests
+    - You'd want to run unit tests and integration tests as you make change 
+  - A completely separate one to run these UI tests (automation tests)
+    - They cost a lot more money to run them repeatedly 
+    - You would maybe want to run these once a day, once a week or before you push to main 
 
 ## Final Note On Testing
-- 
+- Poudction 
+  - App.js 
+- Development 
+  - App.test.js -- create-react-app will know what to do with this file type 
+  - Keep in mind you only run your tests in development, you're never going to ship your test libraries or your test code into production 
+    - Most of the time you use these as dev dependencies 
 
 ## Setting Up Jest
-- 3/8
+- Setting up our small Google example 
+- Jest automatically looks for a folder with .test or spec 
+- The it() function 
+  - Pretty much all of these libraries have the same syntax 
 
 ## Our First Tests
-- 
+- Because we're in node we don't have the import syntax (this might be out of date)
+- With jest we can watch the `--watch` to our scripts 
+  - npm test and npm start don't need the run command 
+- We need to export our database as well, but this is not realistic 
+  - Going through your real database is expensive, so we just mock it 
+- Since we don't have access to the database we'd have to manually change out the function for our mockdatabase 
+  - So this is why you want your functions to be pure and you also want to add things to them like a dependency injection 
+    - Dependency Injection - in order to make a function reusable and use it in other parts of our codebase, have the database injected into the function, so anyone can inject the database by passing it a parameter 
+- It's not just meaningful to run the function, we want to assert that this does what we expect it to do 
+- In the docs you can see expect and toBe
 
 ## Writing Tests
-- 
+- With tests, the more you have the better it is 
+  - It's better to have a lot of tests that cover a lot of scenarios
+  - Don't worry about DRY here since these never go into production 
+- To test how many items are returned back to us, we can add .length if it's an array and .toEqual to whatever we expect that number to be 
+- Just because your test passes, it doesn't mean it works, it's better to write them to fail first 
+- We can group tests that are similar with a function called describe 
 
 ## Quick Note: Upcoming API Endpoint + ES6 Modules
-- 
+- In the next video, you don't need to download node-fetch if you're on a later version of node 
+- Also API may have changed, so if it doesn't work use one of the other listed APIs instead to go along with lecture 
 
 ## Asynchronous Tests
-- 
+- One of the harder tests to write is asynchronous tests 
 
 ## Asynchronous Tests 2
 - 4/8

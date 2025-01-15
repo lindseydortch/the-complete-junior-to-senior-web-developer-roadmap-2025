@@ -202,13 +202,22 @@
 - A note on the upcoming lectures and the alternative to Enzyme (React Testing Library)
 
 ## Introduction To Enzyme
-- 5/8
+- There's a library by Airbnb that makes React testing easier 
+  - Most of the time there will be documentation to be easier for you to set these libraries up
+- Enzyme gives us three things we can use 
+  - shallow 
+    - 90% of the time you'll be using shallow 
+    - It is useful because it just renders the component 
+    - Let's you test one component/ one small piece at a time 
+    - Your tests will fail when you have child components 
+  - mount
+  - render 
 
 ## Resources: Enzyme
-- 
+- To learn more about render, shallow, and mount you can take a look at the enzyme documentation 
 
 ## Quick Note: Empty Snapshots
-- 
+- A note on how to fix empty snapshots 
 
 ## Snapshot Testing
 - 

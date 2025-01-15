@@ -176,19 +176,30 @@
 - One of the harder tests to write is asynchronous tests 
 
 ## Asynchronous Tests 2
-- 4/8
+- We always want to make sure we fail our tests and make sure our tests are working how we want them to 
+- One tool we can use with Jest is 
+  - `expect.assertions`
+  - We use this to make sure our test is running 
+  - This will return false when we do async functions 
+- We can pass `done` in our parameters so we can say don't pass this test until it is done 
+- If your code uses promises we can just return the promise, Jest is smart enough to know we're waiting for this to return 
+  - When running asynchronous tests always use `expect.assertions`
 
 ## Resources: Jest Cheat Sheet
-- 
+- Link to the Jest cheatsheet: https://github.com/sapegin/jest-cheat-sheet
 
 ## Mocks and Spies
-- 
+- How can we improve this so we're not always making the fetch call 
+  - This is where mocks come in, we make a fake function call and just pretend to have it running 
+  - We use this mock to let us spy on the behavior of a function that is called indirectly by some other code rather than just testing the output and waiting for the asynchronous code to complete 
+- For mocks we use 
+  - `jest.fn().mockReturnValue(Promise.resolve({json: () => Promise.resolve({count: 87, results: [0,1,2,3,4,5]})}))`
 
 ## Exercise: #1 - Testing With Jest
-- 
+- Practice writing your own tests 
 
 ## Enzyme vs React Testing Library
-- 
+- A note on the upcoming lectures and the alternative to Enzyme (React Testing Library)
 
 ## Introduction To Enzyme
 - 5/8
